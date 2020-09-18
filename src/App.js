@@ -8,6 +8,7 @@ import Home from "./panels/Home";
 import Feed from "./panels/Feed";
 
 import Persik from "./panels/Persik";
+import Map from "./panels/Map";
 
 const App = () => {
   const [activePanel, setActivePanel] = useState("home");
@@ -35,6 +36,8 @@ const App = () => {
   return (
     <View activePanel={activePanel}>
       <Home id="home" fetchedUser={fetchedUser} go={go} />
+      <Map id="map" fetchedUser={fetchedUser} go={go} />
+
       <Feed id="feed" fetchedUser={fetchedUser} go={go} />
       <Persik id="persik" go={go} />
     </View>

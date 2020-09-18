@@ -5,6 +5,7 @@ import {
   TabbarItem,
   Panel,
   PanelHeader,
+  Button,
 } from "@vkontakte/vkui";
 import {
   Icon28NewsfeedOutline,
@@ -20,13 +21,10 @@ import PanelHeaderButton from "@vkontakte/vkui/dist/components/PanelHeaderButton
 import Icon28ChevronBack from "@vkontakte/icons/dist/28/chevron_back";
 import Icon24Back from "@vkontakte/icons/dist/24/back";
 
-import persik from "../img/persik.png";
-import "./Persik.css";
-
 const osName = platform();
 
 const Feed = (props) => {
-  const [activeStory, setActiveStory] = useState("profile");
+  const [activeStory, setActiveStory] = useState("feed");
   const onStoryChange = (e) => {
     setActiveStory(e.currentTarget.dataset.story);
   };
@@ -92,6 +90,9 @@ const Feed = (props) => {
         <View id="feed" activePanel="feed">
           <Panel id="feed">
             <PanelHeader>Новости</PanelHeader>
+            <Button onClick={props.go} data-to="map">
+              Карта
+            </Button>
           </Panel>
         </View>
         <View id="services" activePanel="services">
