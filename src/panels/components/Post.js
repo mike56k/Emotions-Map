@@ -24,7 +24,7 @@ const Post = () => {
   const [user, setUser] = useState(null);
   useEffect(() => {
     bridge.send("VKWebAppGetUserInfo", {}).then((user) => {
-      setUser({ user });
+      setUser(user);
     });
   });
   return (
