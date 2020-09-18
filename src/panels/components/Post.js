@@ -32,7 +32,7 @@ const Post = () => {
       <Card size="l" mode="shadow" style={{ height: 324 }}>
         {user ? (
           <RichCell before={<Avatar src={user.photo_100} size={48} />}>
-            {user.first_name}+" "+{user.last_name}
+            {user.first_name} {user.last_name}
           </RichCell>
         ) : (
           "VK Apps Image Example"
