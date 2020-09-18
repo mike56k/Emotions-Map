@@ -31,7 +31,9 @@ const Post = () => {
     <CardGrid>
       <Card size="l" mode="shadow" style={{ height: 324 }}>
         {user ? (
-          <RichCell before={<Avatar size={48} />}>{user.first_name}</RichCell>
+          <RichCell before={<Avatar src={user.photo_100} size={48} />}>
+            {user.first_name}+" "+{user.last_name}
+          </RichCell>
         ) : (
           "VK Apps Image Example"
         )}
