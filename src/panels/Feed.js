@@ -20,6 +20,7 @@ import { platform, IOS } from "@vkontakte/vkui";
 import PanelHeaderButton from "@vkontakte/vkui/dist/components/PanelHeaderButton/PanelHeaderButton";
 import Icon28ChevronBack from "@vkontakte/icons/dist/28/chevron_back";
 import Icon24Back from "@vkontakte/icons/dist/24/back";
+import Post from "./components/Post";
 
 const osName = platform();
 
@@ -93,6 +94,7 @@ const Feed = (props) => {
             <Button onClick={props.go} data-to="map">
               Карта
             </Button>
+            <Post />
           </Panel>
         </View>
         <View id="services" activePanel="services">
