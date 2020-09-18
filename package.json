@@ -33,7 +33,10 @@
     "google-maps-react": "^2.0.6",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-addons": "^0.9.1-deprecated",
+    "react-addons-test-utils": "^15.6.2",
+    "react-dom": "^16.13.1",
+    "react-pure-render": "^1.0.2"
   },
   "browserslist": {
     "production": [
