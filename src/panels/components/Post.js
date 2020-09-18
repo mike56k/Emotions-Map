@@ -12,14 +12,21 @@ const Post =()=> {
 			.then((user) => {
 				setUser({ user });
 			});
-	})
+	});
     return (<CardGrid>
         <Card size="l" mode="shadow" style={{height:324}}>
-        <RichCell
-        before={<Avatar size={48} />}
-        >Живе Беларусь
-        </RichCell>
-          <div style={{height:162, background:"red"}}></div>
+            {
+                 user ?
+                 <RichCell
+                 before={<Avatar size={48} />}
+                 >{user.first_name}
+                 </RichCell>
+                   
+                   :
+                   'VK Apps Image Example'
+            }
+            <div style={{height:162, background:"red"}}></div>
+           
          
          
           <Div style={{display: 'flex' }}>
