@@ -41,7 +41,7 @@ const Feed = (props) => {
   });
   return (
     <Panel id={props.id}>
-      {bridge.isWebView() || user === null ? (
+      {user ? (
         <PanelHeader
           left={
             <PanelHeaderButton onClick={props.go} data-to="createpost">
@@ -54,7 +54,7 @@ const Feed = (props) => {
             </PanelHeaderButton>
           }
         >
-          Feed
+          Новости
         </PanelHeader>
       ) : (
         <PanelHeader
@@ -73,7 +73,7 @@ const Feed = (props) => {
             </PanelHeaderButton>
           }
         >
-          Feed
+          Новости
         </PanelHeader>
       )}
 
