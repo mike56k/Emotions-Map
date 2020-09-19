@@ -23,6 +23,7 @@ import {
   IOS,
   ANDROID,
   Textarea,
+  Text,
 } from "@vkontakte/vkui";
 import Icon16User from "@vkontakte/icons/dist/16/user";
 import Icon24Dismiss from "@vkontakte/icons/dist/24/dismiss";
@@ -45,132 +46,133 @@ const MODAL_PAGE_FILTERS = "filters";
 const osName = platform();
 
 const CreatePost = ({ id, go, fetchedUser }) => {
-  const [user, setUser] = useState(null);
   const [text, setText] = useState("");
   const [popout, setPopout] = useState(null);
   const [modalHistory, setModalHistory] = useState([]);
-
+  const [user, setUser] = useState(null);
   useEffect(() => {
     bridge.send("VKWebAppGetUserInfo", {}).then((user) => {
-      setUser({ user });
+      setUser(user);
     });
   });
 
   return (
     <Panel id={id}>
-      <View activePanel="context">
-        <Panel id="context" style={{ position: "relative", height: "92vh" }}>
-          {user ? (
-            <PanelHeader
-              left={<Icon24Dismiss />}
-              right={
-                <PanelHeaderButton
-                  onClick={go}
-                  data-to="feed"
-                  style={{ marginRight: "90px" }}
-                >
-                  <Icon48WritebarSend />
-                </PanelHeaderButton>
-              }
-            >
-              <PanelHeaderContent>{user.first_name}</PanelHeaderContent>
-            </PanelHeader>
-          ) : (
-            <PanelHeader
-              left={<Icon24Dismiss />}
-              right={
-                <PanelHeaderButton onClick={go} data-to="feed">
-                  <Icon48WritebarSend />
-                </PanelHeaderButton>
-              }
-            >
-              <PanelHeaderContent>{"VK Mini App"}</PanelHeaderContent>
-            </PanelHeader>
-          )}
-
-          <Div>
-            <FormLayout>
-              <textarea
-                rows="16"
-                style={{
-                  overflow: "hidden",
-                  fontFamily: "inherit",
-                  fontSize: "24px",
-                }}
-                placeholder="Что у Вас нового?"
-                onChange={(e) => {
-                  setText(e.target.value);
-                }}
-              ></textarea>
-            </FormLayout>
-          </Div>
-          <Div>
-            <HorizontalScroll>
-              <Div
-                style={{
-                  display: "flex",
-                }}
+      {/* <View activePanel="context"> */}
+      <Panel id="context" style={{ position: "relative", height: "92vh" }}>
+        {user ? (
+          <PanelHeader
+            left={<Icon24Dismiss />}
+            right={
+              <PanelHeaderButton
+                onClick={go}
+                data-to="feed"
+                style={{ marginRight: "90px" }}
               >
-                <Button
-                  className="outline_Button"
-                  before={<Icon16User />}
-                  after={<Icon16DropDown />}
-                  mode="outline"
-                >
-                  Видно всем
-                </Button>
-                <Button
-                  className="outline_Button"
-                  before={<Icon16Recent />}
-                  after={<Icon16DropDown />}
-                  mode="outline"
-                >
-                  Сейчас
-                </Button>
-                <Button
-                  className="outline_Button"
-                  after={<Icon16DropDown />}
-                  mode="outline"
-                >
-                  Настроение
-                </Button>
-                <Button
-                  className="outline_Button"
-                  after={<Icon16DropDown />}
-                  mode="outline"
-                >
-                  Тематика
-                </Button>
-              </Div>
-            </HorizontalScroll>
-          </Div>
-          <Epic
-            tabbar={
-              <Tabbar>
-                <TabbarItem data-story="feed">
-                  <Icon28NewsfeedOutline />
-                </TabbarItem>
-                <TabbarItem data-story="services">
-                  <Icon28PictureOutline />
-                </TabbarItem>
-                <TabbarItem data-story="messages">
-                  <Icon28MusicOutline />
-                </TabbarItem>
-                <TabbarItem data-story="clips">
-                  <Icon28MoreHorizontal />
-                </TabbarItem>
-                <TabbarItem></TabbarItem>
-                <TabbarItem data-story="profile">
-                  <Icon28SettingsOutline />
-                </TabbarItem>
-                <TabbarItem data-story="profile">
-                  <Icon28ChevronDownOutline />
-                </TabbarItem>
-              </Tabbar>
+                <Icon48WritebarSend />
+              </PanelHeaderButton>
             }
-          ></Epic>
-        </Panel>
-      </View>
+          >
+            <PanelHeaderContent>
+              <Text>{user.first_name}</Text>
+            </PanelHeaderContent>
+          </PanelHeader>
+        ) : (
+          <PanelHeader
+            left={<Icon24Dismiss />}
+            right={
+              <PanelHeaderButton onClick={go} data-to="feed">
+                <Icon48WritebarSend />
+              </PanelHeaderButton>
+            }
+          >
+            <PanelHeaderContent>{"VK Mini App"}</PanelHeaderContent>
+          </PanelHeader>
+        )}
+
+        <Div>
+          <FormLayout>
+            <textarea
+              rows="16"
+              style={{
+                overflow: "hidden",
+                fontFamily: "inherit",
+                fontSize: "24px",
+              }}
+              placeholder="Что у Вас нового?"
+              onChange={(e) => {
+                setText(e.target.value);
+              }}
+            ></textarea>
+          </FormLayout>
+        </Div>
+        <Div>
+          <HorizontalScroll>
+            <Div
+              style={{
+                display: "flex",
+              }}
+            >
+              <Button
+                className="outline_Button"
+                before={<Icon16User />}
+                after={<Icon16DropDown />}
+                mode="outline"
+              >
+                Видно всем
+              </Button>
+              <Button
+                className="outline_Button"
+                before={<Icon16Recent />}
+                after={<Icon16DropDown />}
+                mode="outline"
+              >
+                Сейчас
+              </Button>
+              <Button
+                className="outline_Button"
+                after={<Icon16DropDown />}
+                mode="outline"
+              >
+                Настроение
+              </Button>
+              <Button
+                className="outline_Button"
+                after={<Icon16DropDown />}
+                mode="outline"
+              >
+                Тематика
+              </Button>
+            </Div>
+          </HorizontalScroll>
+        </Div>
+        <Epic
+          tabbar={
+            <Tabbar>
+              <TabbarItem data-story="feed">
+                <Icon28NewsfeedOutline />
+              </TabbarItem>
+              <TabbarItem data-story="services">
+                <Icon28PictureOutline />
+              </TabbarItem>
+              <TabbarItem data-story="messages">
+                <Icon28MusicOutline />
+              </TabbarItem>
+              <TabbarItem data-story="clips">
+                <Icon28MoreHorizontal />
+              </TabbarItem>
+              <TabbarItem></TabbarItem>
+              <TabbarItem data-story="profile">
+                <Icon28SettingsOutline />
+              </TabbarItem>
+              <TabbarItem data-story="profile">
+                <Icon28ChevronDownOutline />
+              </TabbarItem>
+            </Tabbar>
+          }
+        ></Epic>
+      </Panel>
+      {/* </View> */}
     </Panel>
   );
 };
