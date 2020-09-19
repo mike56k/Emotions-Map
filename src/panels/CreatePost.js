@@ -62,7 +62,11 @@ const CreatePost = ({ id, go, fetchedUser }) => {
           <PanelHeader
             left={<Icon24Dismiss />}
             right={
-              <PanelHeaderButton onClick={go} data-to="feed">
+              <PanelHeaderButton
+                style={{ marginRight: "40px" }}
+                onClick={go}
+                data-to="feed"
+              >
                 <Icon48WritebarSend />
               </PanelHeaderButton>
             }
