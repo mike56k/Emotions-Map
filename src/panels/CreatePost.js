@@ -59,24 +59,42 @@ const CreatePost = ({ id, go, fetchedUser }) => {
     <Panel id={id}>
       <View activePanel="context">
         <Panel id="context" style={{ position: "relative", height: "92vh" }}>
-          <PanelHeader
-            left={<Icon24Dismiss />}
-            right={
-              <PanelHeaderButton
-                style={{ marginRight: "90px" }}
-                onClick={go}
-                data-to="feed"
-              >
-                <Icon48WritebarSend />
-              </PanelHeaderButton>
-            }
-          >
-            {user ? (
-              <PanelHeaderContent>{user.first_name}</PanelHeaderContent>
-            ) : (
-              <PanelHeaderContent>{"VK Mini App"}</PanelHeaderContent>
-            )}
-          </PanelHeader>
+          {bridge.isWebView() || user === null ? (
+            <PanelHeader
+              left={<Icon24Dismiss />}
+              right={
+                <PanelHeaderButton onClick={go} data-to="feed">
+                  <Icon48WritebarSend />
+                </PanelHeaderButton>
+              }
+            >
+              {user ? (
+                <PanelHeaderContent>`{user.first_name}`</PanelHeaderContent>
+              ) : (
+                <PanelHeaderContent>{"VK Mini App"}</PanelHeaderContent>
+              )}
+            </PanelHeader>
+          ) : (
+            <PanelHeader
+              left={<Icon24Dismiss />}
+              right={
+                <PanelHeaderButton
+                  style={{ marginRight: "90px" }}
+                  onClick={go}
+                  data-to="feed"
+                >
+                  <Icon48WritebarSend />
+                </PanelHeaderButton>
+              }
+            >
+              {user ? (
+                <PanelHeaderContent>`{user.first_name}`</PanelHeaderContent>
+              ) : (
+                <PanelHeaderContent>{"VK Mini App"}</PanelHeaderContent>
+              )}
+            </PanelHeader>
+          )}
+
           <Div>
             <FormLayout>
               <textarea
@@ -88,7 +106,7 @@ const CreatePost = ({ id, go, fetchedUser }) => {
               ></textarea>
             </FormLayout>
           </Div>
-          <Div style={{ position: "sticky", bottom: 10 }}>
+          <Div>
             <HorizontalScroll>
               <Div
                 style={{
