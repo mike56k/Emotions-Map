@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "df31de15cc00b4325d6d4652d1014b0e",
+    "revision": "1725fdeb64ef924c5c9c6c510497eb0d",
     "url": "/Emotions-Map/index.html"
   },
   {
-    "revision": "b2f18f772ed6890f6c5e",
+    "revision": "c6570b30c12a01170dac",
     "url": "/Emotions-Map/static/css/2.09e62520.chunk.css"
   },
   {
-    "revision": "7ff1248e851eb26b9f59",
+    "revision": "7675b5338f22a5f99c00",
     "url": "/Emotions-Map/static/css/main.2a30bfcb.chunk.css"
   },
   {
-    "revision": "b2f18f772ed6890f6c5e",
-    "url": "/Emotions-Map/static/js/2.c1d7e07a.chunk.js"
+    "revision": "c6570b30c12a01170dac",
+    "url": "/Emotions-Map/static/js/2.e9042482.chunk.js"
   },
   {
     "revision": "2a65342a7cef87ae756f1549b040326b",
-    "url": "/Emotions-Map/static/js/2.c1d7e07a.chunk.js.LICENSE.txt"
+    "url": "/Emotions-Map/static/js/2.e9042482.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "7ff1248e851eb26b9f59",
-    "url": "/Emotions-Map/static/js/main.8030c09e.chunk.js"
+    "revision": "7675b5338f22a5f99c00",
+    "url": "/Emotions-Map/static/js/main.1359dc47.chunk.js"
   },
   {
     "revision": "4a8f30911ca66f216f9f",
