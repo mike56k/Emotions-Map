@@ -60,7 +60,22 @@ const CreatePost = ({ id, go, fetchedUser }) => {
     <Panel id={id}>
       <View activePanel="context">
         <Panel id="context" style={{ position: "relative", height: "92vh" }}>
-          {bridge.isWebView() ? (
+          {user ? (
+            <PanelHeader
+              left={<Icon24Dismiss />}
+              right={
+                <PanelHeaderButton
+                  onClick={go}
+                  data-to="feed"
+                  style={{ marginRight: "90px" }}
+                >
+                  <Icon48WritebarSend />
+                </PanelHeaderButton>
+              }
+            >
+              <PanelHeaderContent>{user.first_name}</PanelHeaderContent>
+            </PanelHeader>
+          ) : (
             <PanelHeader
               left={<Icon24Dismiss />}
               right={
@@ -69,30 +84,7 @@ const CreatePost = ({ id, go, fetchedUser }) => {
                 </PanelHeaderButton>
               }
             >
-              {user ? (
-                <PanelHeaderContent>{user.first_name}</PanelHeaderContent>
-              ) : (
-                <PanelHeaderContent>{"VK Mini App"}</PanelHeaderContent>
-              )}
-            </PanelHeader>
-          ) : (
-            <PanelHeader
-              left={<Icon24Dismiss />}
-              right={
-                <PanelHeaderButton
-                  style={{ marginRight: "90px" }}
-                  onClick={go}
-                  data-to="feed"
-                >
-                  <Icon48WritebarSend />
-                </PanelHeaderButton>
-              }
-            >
-              {user ? (
-                <PanelHeaderContent>`{user.first_name}`</PanelHeaderContent>
-              ) : (
-                <PanelHeaderContent>{"VK Mini App"}</PanelHeaderContent>
-              )}
+              <PanelHeaderContent>{"VK Mini App"}</PanelHeaderContent>
             </PanelHeader>
           )}
 
