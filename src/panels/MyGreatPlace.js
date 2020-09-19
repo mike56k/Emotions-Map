@@ -14,6 +14,14 @@ export default class MyGreatPlace extends Component {
   shouldComponentUpdate = shouldPureComponentUpdate;
 
   render() {
-    return <div style={greatPlaceStyle}>{this.props.text}</div>;
+    return (
+      <button
+        style={greatPlaceStyle}
+        onClick={this.props.nazad.go}
+        data-to="feed"
+      >
+        {this.props.text}
+      </button>
+    );
   }
 }

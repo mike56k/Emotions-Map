@@ -35,10 +35,16 @@ const Post = () => {
             {user.first_name} {user.last_name}
           </RichCell>
         ) : (
-          "VK Apps Image Example"
+          <RichCell before={<Avatar size={48} />}>Иван Иванов</RichCell>
         )}
-        <div style={{ height: 162, background: "red" }}></div>
-
+        <div
+          style={{
+            height: 162,
+            backgroundImage: `url(
+              "https://foodandmood.com.ua/i/70/83/24/708324/image_main/dbb370837d641548ac7701a36adb5029-quality_75Xresize_crop_1Xallow_enlarge_0Xw_740Xh_493.jpg"
+            )`,
+          }}
+        ></div>
         <Div style={{ display: "flex" }}>
           <Group header={<Header mode="secondary">15 комментариев</Header>}>
             <Button style={{ marginRight: 8, backgroundColor: "transparent" }}>

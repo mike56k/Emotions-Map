@@ -21,11 +21,12 @@ import PanelHeaderButton from "@vkontakte/vkui/dist/components/PanelHeaderButton
 import Icon28ChevronBack from "@vkontakte/icons/dist/28/chevron_back";
 import Icon24Back from "@vkontakte/icons/dist/24/back";
 import Post from "./components/Post";
-
+import Icon24Globe from "@vkontakte/icons/dist/24/globe";
 const osName = platform();
 
 const Feed = (props) => {
   const [activeStory, setActiveStory] = useState("feed");
+  const [postsMas, setPostsMas] = useState([]);
   const onStoryChange = (e) => {
     setActiveStory(e.currentTarget.dataset.story);
   };
@@ -33,13 +34,19 @@ const Feed = (props) => {
     <Panel id={props.id}>
       <PanelHeader
         left={
-          <PanelHeaderButton onClick={props.go} data-to="home">
+          <PanelHeaderButton onClick={props.go} data-to="createpost">
             {osName === IOS ? <Icon28ChevronBack /> : <Icon24Back />}
+          </PanelHeaderButton>
+        }
+        right={
+          <PanelHeaderButton onClick={props.go} data-to="map">
+            <Icon24Globe />
           </PanelHeaderButton>
         }
       >
         Feed
       </PanelHeader>
+
       <Epic
         activeStory={activeStory}
         tabbar={
@@ -89,11 +96,10 @@ const Feed = (props) => {
         }
       >
         <View id="feed" activePanel="feed">
-          <Panel id="feed">
-            <PanelHeader>Новости</PanelHeader>
-            <Button onClick={props.go} data-to="map">
-              Карта
-            </Button>
+          <Panel id="feed" style={{ position: "relative" }}>
+            <Post />
+            <Post />
+            <Post />
             <Post />
           </Panel>
         </View>
@@ -128,24 +134,3 @@ Feed.propTypes = {
 };
 
 export default Feed;
-
-// export default class Feed extends React.Component {
-//   constructor(props) {
-//     super(props);
-
-//     this.state = {
-//       activeStory: "profile",
-//     };
-//     this.onStoryChange = this.onStoryChange.bind(this);
-//   }
-
-//   onStoryChange(e) {
-//     this.setState({ activeStory: e.currentTarget.dataset.story });
-//   }
-
-//   render() {
-//     return (
-//
-//     );
-//   }
-// }

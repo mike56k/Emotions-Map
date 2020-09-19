@@ -4,6 +4,8 @@ import MyGreatPlace from "./MyGreatPlace.js";
 import PropTypes from "prop-types";
 import SearchCard from "./SearchCard.js";
 import "./mapcontainer.css";
+import { platform, IOS, Button, ModalCard, CellButton } from "@vkontakte/vkui";
+
 class SimpleMap extends Component {
   static propTypes = {
     center: PropTypes.array,
@@ -21,8 +23,8 @@ class SimpleMap extends Component {
   render() {
     return (
       // Important! Always set the container height explicitly
-      <div>
-        <div style={{ height: "100vh", width: "100%" }} id="gmap">
+      <div className="rel">
+        <div style={{ height: "78vh", width: "100%" }}>
           <GoogleMapReact
             bootstrapURLKeys={{
               key: "AIzaSyBKw11akhPLco6hZSw8IU3heygOKz7150M",
@@ -32,16 +34,19 @@ class SimpleMap extends Component {
           >
             <MyGreatPlace
               lat={59.955413}
+              nazad={this.props.nazad}
               lng={30.337844}
-              text={"🛵\nСкутер"} /* Kreyser Avrora */
+              text={"😷 \n Карантин"}
             />
             <MyGreatPlace
-              {...this.props.greatPlaceCoords}
-              text={"B"} /* road circle */
+              lat={59.975413}
+              nazad={this.props.nazad}
+              lng={30.337844}
+              text={"🍂 \n Осень"}
             />
           </GoogleMapReact>
         </div>
-        <SearchCard class="container overlap" />{" "}
+        <SearchCard style={{ height: "22vh", width: "100%" }} />
       </div>
     );
   }

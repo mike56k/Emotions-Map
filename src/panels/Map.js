@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { platform, IOS } from "@vkontakte/vkui";
+import { platform, IOS, Button } from "@vkontakte/vkui";
 import Panel from "@vkontakte/vkui/dist/components/Panel/Panel";
 import PanelHeader from "@vkontakte/vkui/dist/components/PanelHeader/PanelHeader";
 import PanelHeaderButton from "@vkontakte/vkui/dist/components/PanelHeaderButton/PanelHeaderButton";
@@ -13,7 +13,7 @@ const osName = platform();
 
 const Map = (props) => (
   <Panel id={props.id}>
-    <SimpleMap />
+    <SimpleMap nazad={props} />
   </Panel>
 );
 

@@ -9,9 +9,10 @@ import Feed from "./panels/Feed";
 
 import Persik from "./panels/Persik";
 import Map from "./panels/Map";
+import CreatePost from "./panels/CreatePost";
 
 const App = () => {
-  const [activePanel, setActivePanel] = useState("home");
+  const [activePanel, setActivePanel] = useState("createpost");
   const [fetchedUser, setUser] = useState(null);
 
   useEffect(() => {
@@ -35,9 +36,8 @@ const App = () => {
 
   return (
     <View activePanel={activePanel}>
-      <Home id="home" fetchedUser={fetchedUser} go={go} />
       <Map id="map" fetchedUser={fetchedUser} go={go} />
-
+      <CreatePost id="createpost" fetchedUser={fetchedUser} go={go} />
       <Feed id="feed" fetchedUser={fetchedUser} go={go} />
       <Persik id="persik" go={go} />
     </View>
