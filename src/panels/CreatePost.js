@@ -74,7 +74,9 @@ const CreatePost = ({ id, go, fetchedUser }) => {
             }
           >
             <PanelHeaderContent>
-              <Text>{user.first_name}</Text>
+              <SimpleCell before={<Avatar src={user.photo_100} size={48} />}>
+                {user.first_name} {user.last_name}
+              </SimpleCell>
             </PanelHeaderContent>
           </PanelHeader>
         ) : (
@@ -93,7 +95,7 @@ const CreatePost = ({ id, go, fetchedUser }) => {
         <Div>
           <FormLayout>
             <textarea
-              rows="16"
+              rows="12"
               style={{
                 overflow: "hidden",
                 fontFamily: "inherit",
