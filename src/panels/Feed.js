@@ -39,7 +39,11 @@ const Feed = (props) => {
           </PanelHeaderButton>
         }
         right={
-          <PanelHeaderButton onClick={props.go} data-to="map">
+          <PanelHeaderButton
+            onClick={props.go}
+            data-to="map"
+            style={{ marginRight: "90px" }}
+          >
             <Icon24Globe />
           </PanelHeaderButton>
         }
