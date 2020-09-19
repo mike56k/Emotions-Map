@@ -22,6 +22,7 @@ import {
   platform,
   IOS,
   ANDROID,
+  Textarea,
 } from "@vkontakte/vkui";
 import Icon16User from "@vkontakte/icons/dist/16/user";
 import Icon24Dismiss from "@vkontakte/icons/dist/24/dismiss";
@@ -98,8 +99,13 @@ const CreatePost = ({ id, go, fetchedUser }) => {
           <Div>
             <FormLayout>
               <textarea
-                rows="24"
-                style={{ overflow: "hidden" }}
+                rows="16"
+                style={{
+                  overflow: "hidden",
+                  fontFamily: "inherit",
+                  fontSize: "24px",
+                }}
+                placeholder="Что у Вас нового?"
                 onChange={(e) => {
                   setText(e.target.value);
                 }}

@@ -10,6 +10,7 @@ import {
   FormLayout,
   Checkbox,
   Link,
+  SimpleCell,
   Div,
   Button,
   Group,
@@ -31,11 +32,19 @@ const Post = () => {
     <CardGrid>
       <Card size="l" mode="shadow" style={{ height: 324 }}>
         {user ? (
-          <RichCell before={<Avatar src={user.photo_100} size={48} />}>
+          <SimpleCell
+            before={<Avatar src={user.photo_100} size={48} />}
+            description="час назад • спокойное настроение"
+          >
             {user.first_name} {user.last_name}
-          </RichCell>
+          </SimpleCell>
         ) : (
-          <RichCell before={<Avatar size={48} />}>Иван Иванов</RichCell>
+          <SimpleCell
+            before={<Avatar size={48} />}
+            description="час назад • спокойное настроение"
+          >
+            Иван Иванов
+          </SimpleCell>
         )}
         <div
           style={{

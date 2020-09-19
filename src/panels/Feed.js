@@ -7,6 +7,8 @@ import {
   PanelHeader,
   Button,
 } from "@vkontakte/vkui";
+import bridge from "@vkontakte/vk-bridge";
+
 import {
   Icon28NewsfeedOutline,
   Icon28ServicesOutline,
@@ -14,7 +16,7 @@ import {
   Icon28ClipOutline,
   Icon28UserCircleOutline,
 } from "@vkontakte/icons";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { platform, IOS } from "@vkontakte/vkui";
 import PanelHeaderButton from "@vkontakte/vkui/dist/components/PanelHeaderButton/PanelHeaderButton";
@@ -25,31 +27,55 @@ import Icon24Globe from "@vkontakte/icons/dist/24/globe";
 const osName = platform();
 
 const Feed = (props) => {
+  const [user, setUser] = useState(null);
+
   const [activeStory, setActiveStory] = useState("feed");
   const [postsMas, setPostsMas] = useState([]);
   const onStoryChange = (e) => {
     setActiveStory(e.currentTarget.dataset.story);
   };
+  useEffect(() => {
+    bridge.send("VKWebAppGetUserInfo", {}).then((user) => {
+      setUser({ user });
+    });
+  });
   return (
     <Panel id={props.id}>
-      <PanelHeader
-        left={
-          <PanelHeaderButton onClick={props.go} data-to="createpost">
-            {osName === IOS ? <Icon28ChevronBack /> : <Icon24Back />}
-          </PanelHeaderButton>
-        }
-        right={
-          <PanelHeaderButton
-            onClick={props.go}
-            data-to="map"
-            style={{ marginRight: "90px" }}
-          >
-            <Icon24Globe />
-          </PanelHeaderButton>
-        }
-      >
-        Feed
-      </PanelHeader>
+      {bridge.isWebView() || user === null ? (
+        <PanelHeader
+          left={
+            <PanelHeaderButton onClick={props.go} data-to="createpost">
+              {osName === IOS ? <Icon28ChevronBack /> : <Icon24Back />}
+            </PanelHeaderButton>
+          }
+          right={
+            <PanelHeaderButton onClick={props.go} data-to="map">
+              <Icon24Globe />
+            </PanelHeaderButton>
+          }
+        >
+          Feed
+        </PanelHeader>
+      ) : (
+        <PanelHeader
+          left={
+            <PanelHeaderButton onClick={props.go} data-to="createpost">
+              {osName === IOS ? <Icon28ChevronBack /> : <Icon24Back />}
+            </PanelHeaderButton>
+          }
+          right={
+            <PanelHeaderButton
+              onClick={props.go}
+              data-to="map"
+              style={{ marginRight: "90px" }}
+            >
+              <Icon24Globe />
+            </PanelHeaderButton>
+          }
+        >
+          Feed
+        </PanelHeader>
+      )}
 
       <Epic
         activeStory={activeStory}
