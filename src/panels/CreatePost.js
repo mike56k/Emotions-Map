@@ -63,7 +63,7 @@ const CreatePost = ({ id, go, fetchedUser }) => {
             left={<Icon24Dismiss />}
             right={
               <PanelHeaderButton
-                style={{ marginRight: "40px" }}
+                style={{ marginRight: "60px" }}
                 onClick={go}
                 data-to="feed"
               >
