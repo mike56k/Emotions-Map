@@ -77,7 +77,7 @@ const CreatePost = ({ id, go, fetchedUser }) => {
           >
             <PanelHeaderContent>
               <SimpleCell before={<Avatar src={user.photo_100} size={48} />}>
-                {user.first_name} {user.last_name}
+                {user.first_name}
               </SimpleCell>
             </PanelHeaderContent>
           </PanelHeader>
@@ -90,7 +90,7 @@ const CreatePost = ({ id, go, fetchedUser }) => {
               </PanelHeaderButton>
             }
           >
-            <PanelHeaderContent>{"VK Mini App"}</PanelHeaderContent>
+            <PanelHeaderContent>{"Добавление поста"}</PanelHeaderContent>
           </PanelHeader>
         )}
 
