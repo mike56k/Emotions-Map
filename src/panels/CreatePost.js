@@ -24,6 +24,8 @@ import {
   ANDROID,
   Textarea,
   Text,
+  SimpleCell,
+  Avatar,
 } from "@vkontakte/vkui";
 import Icon16User from "@vkontakte/icons/dist/16/user";
 import Icon24Dismiss from "@vkontakte/icons/dist/24/dismiss";

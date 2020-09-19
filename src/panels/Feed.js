@@ -101,7 +101,6 @@ const Feed = (props) => {
               onClick={onStoryChange}
               selected={activeStory === "messages"}
               data-story="messages"
-              label="12"
               text="Сообщения"
             >
               <Icon28MessageOutline />
