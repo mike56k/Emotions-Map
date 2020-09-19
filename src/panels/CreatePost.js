@@ -60,7 +60,7 @@ const CreatePost = ({ id, go, fetchedUser }) => {
     <Panel id={id}>
       <View activePanel="context">
         <Panel id="context" style={{ position: "relative", height: "92vh" }}>
-          {bridge.isWebView() || user === null ? (
+          {bridge.isWebView() ? (
             <PanelHeader
               left={<Icon24Dismiss />}
               right={
@@ -70,7 +70,7 @@ const CreatePost = ({ id, go, fetchedUser }) => {
               }
             >
               {user ? (
-                <PanelHeaderContent>`{user.first_name}`</PanelHeaderContent>
+                <PanelHeaderContent>{user.first_name}</PanelHeaderContent>
               ) : (
                 <PanelHeaderContent>{"VK Mini App"}</PanelHeaderContent>
               )}
